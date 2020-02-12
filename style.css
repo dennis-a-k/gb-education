@@ -92,7 +92,7 @@ header {
 
 @media (min-width: 992px) {
   .Dignity div[class^="col-"]:not( :nth-child(-n+2)) {
-    margin-top: 36px;
+    margin-top: 20px;
   }
 }
 
@@ -100,15 +100,24 @@ header {
   background: url(img/3-layers.png) no-repeat left 5px;
   padding-left: 45px;
   text-align: justify;
+  color: #333333;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 @media (max-width: 479px) {
   .plus {
     background-position: center top;
     padding-bottom: 40px;
-    padding-left: 0;
+    padding-left: 5;
     text-align: left;
     padding-top: 45px;
+  }
+}
+
+@media all and (min-width: 0) and (max-width: 991px) {
+  .Dignity div[class^="col-"]:not(:first-child) {
+    margin-top: 15px;
   }
 }
 
@@ -121,6 +130,7 @@ header {
 @media all and (min-width: 0) and (max-width: 991px) {
   .Scrinshots:not(:first-child) {
     margin-top: 30px;
+    float: left;
   }
 }
 
@@ -223,6 +233,12 @@ header {
 @media all and (min-width: 0) and (max-width: 991px) {
   .buy_box:not(:last-child) {
     margin-bottom: 30px;
+  }
+}
+
+@media all and (min-width: 0) and (max-width: 991px) {
+  .buy_unit {
+    align-items: center;
   }
 }
 
