@@ -21,10 +21,13 @@ li {
 .button {
   box-shadow: -4px 12px 40px rgba(0, 1, 1, 0.2);
   background-color: #1a9bdc;
+  transition-duration: .5s;
 }
 
 .button:hover {
   background-color: #37c3a8;
+  text-decoration: none;
+  color: #fff;
 }
 
 .container {
@@ -37,9 +40,11 @@ li {
   .container {
     width: 100%;
   }
+
+  address {
+    margin: 0;
+  }
 }
-
-
 
 .padding-site {
   padding: 0 10%;
@@ -174,7 +179,7 @@ li {
 
 .nav {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 0 2fr 1fr;
 }
 
 @media all and (min-width: 0) and (max-width: 991px) {
@@ -252,6 +257,7 @@ li {
 
 .navBar__link:hover {
   color: #262626;
+  text-decoration: none;
 }
 
 .header-social-icon {
@@ -277,10 +283,13 @@ li {
   color: #191919;
   font-size: 23px;
   margin: 10px;
+  transition-duration: .2s;
+  display: block;
 }
 
 .header-social-icon__link:hover {
   color: #37c3a8;
+  transform: scale(1.2);
 }
 
 .home-page {
@@ -1222,10 +1231,13 @@ li {
   font-size: 25px;
   font-weight: 400;
   margin: 0 10px;
+  display: block;
+  transition-duration: .2s;
 }
 
 .socials-link:hover {
   color: #37c3a8;
+  transform: scale(1.2);
 }
 
 @media all and (min-width: 0) and (max-width: 767px) {
@@ -1413,10 +1425,13 @@ li {
   font-size: 25px;
   font-weight: 400;
   margin-right: 25px;
+  transition-duration: .2s;
+  display: block;
 }
 
 .footer-social-icon__link:hover {
   color: #37c3a8;
+  transform: scale(1.2);
 }
 
 @media all and (min-width: 0) and (max-width: 767px) {
