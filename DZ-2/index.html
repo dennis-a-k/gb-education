@@ -17,7 +17,7 @@
   <div class="container">
     <header class="padding-site">
       <address class="header-top">
-        <a href="#"><img src="img/Logo.png" alt="Logo"></a>
+        <a href="#" class="logo"><img src="img/Logo.png" alt="Logo"></a>
         <div class="header-top__box header__time-work">
           <i class="far fa-clock header-top__icon"></i>
           <div>
@@ -41,6 +41,15 @@
         </div>
       </address>
       <nav>
+        <input type="checkbox" id="off-control" class="off-control">
+        <label for="off-control" class="off-btn">
+          <span class="off-btn__line"></span>
+          <span class="off-btn__line"></span>
+          <span class="off-btn__line"></span>
+          <span class="off-btn__line"></span>
+        </label>
+        <div class="offcanvas nav">
+          
         <ul class="navBar">
           <li class="navBar__list"><a href="#" class="navBar__link">Home</a></li>
           <li class="navBar__list"><a href="#about" class="navBar__link">About</a></li>
@@ -55,11 +64,11 @@
           <li><a href="#" class="header-social-icon__link"><i class="fab fa-vk"></i></a></li>
           <li><a href="#" class="header-social-icon__link"><i class="fab fa-youtube"></i></a></li>
           <li><a href="#" class="header-social-icon__link"><i class="fab fa-linkedin-in"></i></a></li>
-        </ul>
+        </ul></div>
       </nav>
     </header>
     <main>
-      <section class="home-page">
+      <section class="home-page padding-site">
         <div class="home-page__text-box">
           <h3 class="home-page__heading">We have Best Medicare plan options for you</h3>
           <p class="home-page__text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
@@ -104,7 +113,7 @@
           <p class="Professional-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
         </aside>
       </section>
-      <section class="about-btn padding-site">
+      <section class="about-btn">
         <div><h3 class="number-1 number">1000+</h3>
         <p class="number-text">Happy Customers</p></div>
         <div><h3 class="number-2 number">2020</h3>
