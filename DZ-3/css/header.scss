@@ -1,0 +1,116 @@
+.header {
+  border-top: 5px solid $mainColor;
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__main>div {
+    padding: 36px 0;
+  }
+
+  &__nav {
+    display: block;
+    justify-self: end;
+  }
+}
+
+.logo {
+  width: 277px;
+  display: block;
+
+  &__title {
+    color: #333;
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 15px;
+  }
+  &__title::first-letter {
+    font-size: 46px;
+  }
+  &__description {
+    color: #999999;
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__list:not(:last-child) {
+    margin-right: 16px;
+  }
+
+  &__link {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: block;
+    color: #fff;
+    background-color: #1f1f1f;
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    transition-duration: $time;
+  }
+
+  &__linkedin-bg:hover {
+    background-color: #0288D1;
+    transform: $transformScale;
+  }
+
+  &__twitter-bg:hover {
+    background-color: #00acee;
+    transform: $transformScale;
+  }
+
+  &__pinterest-bg:hover {
+    background-color: #D32F2F;
+    transform: $transformScale;
+  }
+
+  &__google-bg:hover {
+    background-color: #F4511E;
+    transform: $transformScale;
+  }
+
+  &__rss-bg:hover {
+    background-color: #FF9800;
+    transform: $transformScale;
+  }
+
+  &_box {
+    width: 251px;
+    height: 49px;
+    background-color: $mainColor;
+    border-radius: 0 0 15px 15px;
+    margin-bottom: 37px;
+    border-top: none;
+  }
+}
+
+.login-menu {
+  display: flex;
+
+  &__list:not(:last-child):after {
+    content: ' | ';
+    color: $mainColor;
+    white-space: pre; //учитывать все пробелы и переносы
+  }
+
+  &__link {
+    color: $mainColor;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 37px 0;
+    transition-duration: $time;
+  }
+
+  &__link:hover {
+    color: #000;
+  }
+}

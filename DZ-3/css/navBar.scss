@@ -1,0 +1,66 @@
+.navBar {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  background-color: $mainColor;
+  height: 70px;
+  align-items: center;
+
+  & div {
+    justify-self: end;
+    display: flex;
+  }
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-around; //равномерное распределение контента по всему блоку
+
+  &__link {
+    @include font;
+    color: #fff;
+    text-transform: uppercase;
+    transition-duration: $time;
+  }
+
+  &__link:hover {
+    color: #000;
+  }
+}
+
+.search-form {
+  justify-self: end;
+
+  &__input {
+    width: 220px;
+    height: 30px;
+    color: #7f7f7f;
+    font-size: 12px;
+    font-weight: 400;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-left: 9px;
+    border: $border;
+    outline: none;
+    float: left;
+  }
+
+  &__button {
+    width: 62px;
+    height: 30px;
+    display: inline-block;
+    background-color: #fff;
+    color: $mainColor;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 31px;
+    text-align: center;
+    border: $border;
+    transition-duration: $time;
+    border-left: none;
+  }
+
+  &__button:hover {
+    color: #fff;
+    background-color: $mainColor;
+  }
+}
