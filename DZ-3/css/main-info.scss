@@ -1,13 +1,14 @@
 .info {
-  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
 
-  & > div {
+  &__box {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     text-align: center;
     grid-gap: 27px;
-    border-bottom: $border;
-    padding-bottom: 50px;
+    //border-bottom: $border;
+    //padding-bottom: 50px;
   }
 
   &__title {
@@ -20,23 +21,28 @@
     flex-direction: column;
   }
 
-  &__title-group::before {
+  &__img-group::before {
     @include infoImg(url(img/icon-group.png));
   }
 
-  &__title-globe::before {
+  &__img-globe::before {
     @include infoImg(url(img/icon-globe.png));
   }
 
-  &__title-cogs::before {
+  &__img-cogs::before {
     @include infoImg(url(img/icon-cogs.png));
   }
 
-  &__title-leaf::before {
+  &__img-leaf::before {
     @include infoImg(url(img/icon-leaf.png));
   }
 
   &__description {
     @include font;
   }
+}
+
+.main__line {
+  border-top: $border;
+  margin: 0 30px 50px;
 }
