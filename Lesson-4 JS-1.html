@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let maxNumber = 999;
+    let inputNumber = {
+        'число': prompt('Введите число от 0 до 999'),
+        'единицы': 0,
+        'десятки': 0,
+        'сотни': 0,
+    };
+    if (inputNumber['число'] <= 9){
+        inputNumber['единицы'] = inputNumber['число'];
+    } else if (inputNumber['число'] <= 999){
+        inputNumber['единицы'] = Math.floor(inputNumber['число'] % 10);
+        inputNumber['десятки'] = Math.floor(inputNumber['число'] / 10 % 10);
+        inputNumber['сотни'] = Math.floor(inputNumber['число'] / 100 % 10);
+    } else {
+        inputNumber['число'] = 0;
+        alert('Вводное число больше 999');
+    }
+    console.log(inputNumber);
+  </script>
+</body>
+</html>
