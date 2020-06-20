@@ -102,7 +102,7 @@
     echo power(3,2).'</br></br>';
 
     echo "Задание №7*<br>";
-    $hour = date("H") +3;
+    $hour = date("H");
     $minute = date("i");
     echo $hour.':'.$minute.'</br>';
     if ($hour == 1 || $hour == 21){
