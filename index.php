@@ -15,7 +15,7 @@
 <!-- заменил тайтл -->
 
 
-	<title><?php echo $title; ?></title>
+	<title><?= $title ?></title>
 </head>
 <body>
 	<div id="content">
@@ -38,7 +38,7 @@
 
 
 
-				<h2><a href="#"><?php echo $heading; ?></a></h2>
+				<h2><a href="#"><?= $heading ?></a></h2>
 
 
 
