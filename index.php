@@ -1,83 +1,92 @@
 <?php
-	$title = "minimalistica";
-	$heading = "Nunc commodo euismod massa quis vestibulum";
+    echo 'Задание №1<br>';
+    $a=0;
+    while($a < 100){
+        $a++;
+        if($a%3==0){
+            echo "$a ";
+        } 
+    }
+    echo '<br><hr><br>';
+
+    echo 'Задание №2<br>';
+    $i = 0;
+    do{
+        if($i == 0){
+            echo "$i - ноль<br>";
+        }elseif ($i%2 == 0) {
+            echo "$i - четное число<br>";
+        }else {
+            echo "$i - нечетное число<br>";
+        }
+        $i++;
+    }
+    while ($i <= 10);
+    echo '<hr><br>';
+
+    echo 'Задание №3<br>';
+    $cityes = [
+        'Московская обл.' => ['Зеленоград', 'Клин', 'Подольск'],
+        'Ленинградская обл.' => ['Всеволожск', 'Павловск', 'Кронштадт', 'Выборг'],
+        'Ростовкая обл.' => ['Ростов', 'Шахты']
+    ];
+    foreach ($cityes as $key => $value) {
+        if(is_array($value)){
+            $city = implode(', ',$value).';';
+        }
+        echo $key.' состоит из таких городов как: '.$city.'<br>';
+    }
+    echo '<hr><br>';
+
+    echo 'Задание №4<br>';
+    $alphabet = [
+        'а'=>'a','б'=>'b','в'=>'v','г'=>'g','д'=>'d','е'=>'e','ё'=>'yo','ж'=>'zh','з'=>'z','и'=>'i','й'=>'y','к'=>'k',
+        'л'=>'l','м'=>'m','н'=>'n','о'=>'o','п'=>'p','р'=>'r','с'=>'s','т'=>'t','у'=>'u','ф'=>'f','х'=>'h','ц'=>'ts','ч'=>'ch',
+        'ш'=>'sh','щ'=>'shch','ы'=>'y','э'=>'e','ю'=>'yu','я'=>'ya'
+    ];
+    echo strtr('русский алфавит', $alphabet);
+    echo '</br><hr></br>';
+
+    echo 'Задание №5<br>';
+    function spaces($str){
+        $symbol = [' ' => ' - '];
+        $text = strtr($str, $symbol);
+        echo "$text";
+    }
+    spaces('заменяем пробелы на дефис');
+    echo '</br><hr></br>';
+
+    echo 'Задание №6<br>';
+    $menu = [
+        'Города' => [
+            'Московская обл.' => ['Зеленоград', 'Клин', 'Подольск'],
+            'Ленинградская обл.' => ['Всеволожск', 'Павловск', 'Кронштадт', 'Выборг'],
+            'Ростовкая обл.' => ['Ростов', 'Шахты']
+        ]
+    ];
+    
+    function menuRender($arr){
+        $renderArr[] = '<ul>';
+        foreach ($arr as $key => $value) {
+            if (is_array($value)) {
+                $renderArr[] = '<li>'.$key.menuRender($value).'</li>';
+            } else {
+                $renderArr[] = '<li>'.$value.'</li>';
+            }
+        }
+        $renderArr[] = '</ul>';
+        return implode($renderArr);
+    }
+    echo menuRender($menu);
+    echo '<hr><br>';
+
+    echo 'Задание №7*<br>';
+    for ($i = 0; $i < 10; print $i++ . ' ') {};
+    echo '<br><hr><br>';
+
+    echo 'Задание №8*<br>';
+    echo '<br><hr><br>';
+
+    echo 'Задание №9*<br>';
+    spaces(strtr('замена русских букв английскими и пробелы дефисом', $alphabet));
 ?>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<meta name="author" content="Luka Cvrk (www.solucija.com)" />
-	<link rel="stylesheet" href="css/main.css" type="text/css" />
-
-
-
-<!-- заменил тайтл -->
-
-
-	<title><?= $title ?></title>
-</head>
-<body>
-	<div id="content">
-		<h1></h1>
-		
-		<ul id="menu">
-			<li><a href="#">home</a></li>
-			<li><a href="#">archive</a></li>
-			<li><a href="#">contact</a></li>
-		</ul>
-	
-		<div class="post">
-			<div class="details">
-
-
-
-
-
-			<!-- заменил заголовок -->
-
-
-
-				<h2><a href="#"><?= $heading ?></a></h2>
-
-
-
-				<!-- поставил дату -->
-
-
-
-				<p class="info">posted 3 hours ago in <a href="#"><?= date("d-m-Y")?></a></p>
-
-
-
-				
-			
-			</div>
-			<div class="body">
-				<p>Nunc eget nunc libero. Nunc commodo euismod massa quis vestibulum. Proin mi nibh, dignissim a pellentesque at, ultricies sit amet sapien. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel lorem eu libero laoreet facilisis. Aenean placerat, ligula quis placerat iaculis, mi magna luctus nibh, adipiscing pretium erat neque vitae augue. Quisque consectetur odio ut sem semper commodo. Maecenas iaculis leo a ligula euismod condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim risus, rhoncus sit amet ultricies vel, aliquet ut dolor. Duis iaculis urna vel massa ultricies suscipit. Phasellus diam sapien, fermentum a eleifend non, luctus non augue. Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat tortor posuere dignissim sit amet at ipsum.</p>
-			</div>
-			<div class="x"></div>
-		</div>
-		
-		<div class="col">
-			<h3><a href="#">Ut enim risus rhoncus</a></h3>
-			<p>Quisque consectetur odio ut sem semper commodo. Maecenas iaculis leo a ligula euismod condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim risus, rhoncus sit amet ultricies vel, aliquet ut dolor. Duis iaculis urna vel massa ultricies suscipit. Phasellus diam sapien, fermentum a eleifend non, luctus non augue. Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat tortor posuere dignissim sit amet at.</p>
-			<p>&not; <a href="#">read more</a></p>
-		</div>
-		<div class="col">
-			<h3><a href="#">Maecenas iaculis leo</a></h3>
-			<p>Quisque consectetur odio ut sem semper commodo. Maecenas iaculis leo a ligula euismod condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim risus, rhoncus sit amet ultricies vel, aliquet ut dolor. Duis iaculis urna vel massa ultricies suscipit. Phasellus diam sapien, fermentum a eleifend non, luctus non augue. Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat tortor posuere dignissim sit amet at.</p>
-			<p>&not; <a href="#">read more</a></p>
-		</div>
-		<div class="col last">
-			<h3><a href="#">Quisque consectetur odio</a></h3>
-			<p>Quisque consectetur odio ut sem semper commodo. Maecenas iaculis leo a ligula euismod condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut enim risus, rhoncus sit amet ultricies vel, aliquet ut dolor. Duis iaculis urna vel massa ultricies suscipit. Phasellus diam sapien, fermentum a eleifend non, luctus non augue. Quisque scelerisque purus quis eros sollicitudin gravida. Aliquam erat volutpat. Donec a sem consequat tortor posuere dignissim sit amet at.</p>
-			<p>&not; <a href="#">read more</a></p>
-		</div>
-		
-		<div id="footer">
-			<p>Copyright &copy; <em>minimalistica</em> &middot; Design: Luka Cvrk, <a href="http://www.solucija.com/" title="Free CSS Templates">Solucija</a></p>
-		</div>	
-	</div>
-</body>
-</html>
