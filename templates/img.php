@@ -8,6 +8,6 @@
   <title>IMG</title>
 </head>
 <body>
-  <img src="../public/img/<?= $_GET['photo']?>">
+  <img src="../public/img/<?= $_GET['img']?>">
 </body>
 </html>
