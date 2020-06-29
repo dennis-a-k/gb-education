@@ -1,3 +1,9 @@
+<?php
+	include '../config/config.php';
+	$sql = 'select * from img_gallery';
+	$res = mysqli_query($connect,$sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,12 +15,11 @@
 </head>
 <body class="grid">
 	<?php
-		$files = scandir('../public/img');
-		for ($i=2; $i < count($files); $i++):		
+		while ($data = mysqli_fetch_assoc($res)):
 	?>
-	<a href="img.php?photo=<?= $files[$i]?>" target="_blank"><img src="../public/img/<?= $files[$i]?>"></a>
+	<a href="img.php?img=<?= $data['path']?>" target="_blank"><img src="../public/img/<?= $data['path']?>"></a>
 	<?php
-		endfor;
+		endwhile;
 	?>
 </body>
 </html>
