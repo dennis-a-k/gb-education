@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    'use strict'
+//es5
+    function Post(author, text, data) {
+      this.author = author;
+      this.text = text;
+      this.data = data;
+    }
+
+    Post.prototype.edit = function(text){
+        this.text = text;
+      };
+
+    const post = new Post ('Ivan', 'TEXT', '2020');
+    post.edit('TEXT TEXT TEXT');
+    console.log(post);
+
+    function AttachedPost(author, text, data){
+      Post.call(this, author, text, data);
+      this.highlighted = false;
+    }
+
+    AttachedPost.prototype = Object.create(Post.prototype);
+    AttachedPost.prototype.constructor = AttachedPost;
+
+    AttachedPost.prototype.makeTextHighlighted = function(){
+      this.highlighted = true;
+    };
+
+    const attachedPost = new AttachedPost('Den', 'text', '2019');
+    attachedPost.makeTextHighlighted();
+    attachedPost.edit('text text text');
+    console.log(attachedPost);
+
+//es6
+    class Post_1 {
+      constructor(author, text, data){
+        this.author = author;
+        this.text = text;
+        this.data = data;
+      }
+      edit_1(text){
+        this.text = text;
+      }
+    }
+    const post_1 = new Post_1 ('Ivan', 'TEXT', '2020');
+    post_1.edit_1('TEXT TEXT TEXT');
+    console.log(post_1);
+
+    class AttachedPost_1 extends Post_1 {
+      constructor(author, text, data){
+        super(author, text, data);
+        this.highlighted = false;
+      }
+      makeTextHighlighted_1() {
+        this.highlighted = true;
+      }
+    }
+    const attachedPost_1 = new AttachedPost_1('Den', 'text', '2019');
+    attachedPost_1.makeTextHighlighted_1();
+    attachedPost_1.edit_1('text text text');
+    console.log(attachedPost_1);
+  </script>
+</body>
+</html>
