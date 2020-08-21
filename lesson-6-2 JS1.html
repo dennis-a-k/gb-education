@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div id="slider">
+		<div id="polosa">
+			<img src="windows-10-1.jpg" alt="img">
+			<img src="windows-10-2.jpg" alt="img">
+			<img src="windows-10-3.jpg" alt="img">
+		</div>
+	</div>
+	<div class="buttons">
+		<button id="slider-left"><<<</button>
+		<button id="slider-right">>>></button>
+	</div>
+	<script>
+		document.getElementById('slider-left').onclick = sliderLeft;
+		document.getElementById('slider-right').onclick = sliderRight;
+		let polosa = document.getElementById('polosa');
+		let left = 0;
+		let right = 0;
+
+		function sliderLeft() {
+			left = left - 500;
+			if (left < -1000) {
+				left = 0;
+			}
+			polosa.style.left = left + 'px';
+		}
+
+		function sliderRight() {
+			left = left + 500;
+			if (left > 0) {
+				left = -1000;
+			}
+			polosa.style.left = left + 'px';
+		}
+	</script>
+</body>
+</html>
