@@ -4,7 +4,7 @@
   padding: 0;
 }
 .container {
-  min-height: 100%;
+  min-height: 100vh;
   display: grid;
   grid-template: minmax(100px, auto) 1fr minmax(80px, auto) / 1fr;
   grid-template-areas:
