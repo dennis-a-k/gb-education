@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div class="container">
+    {% include 'header.tmpl' %}
+    <main>
+      <div class="wrap">
+        <div class="goods-list _margin">
+        {% for product in data %}
+          <div class="goods-item">
+            <img src="img/{{ product.img }}">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price }} ₽</p>
+            <a href="#" class="cart-button _margin-top">Купить</a>
+          </div>
+        {% endfor %}
+        </div>
+        <button class="show-more">Показать ещё</button>
+      </div>
+    </main>
+    {% include 'footer.tmpl' %}
+	</div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+  <script src="js/script.js" type="text/javascript"></script>
+</body>
+</html>
