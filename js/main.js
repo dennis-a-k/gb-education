@@ -15,7 +15,7 @@ const renderProduct = (good) => {
 };
 const renderPage = list => {
     const productsList = list.map(item => renderProduct(item)).join('');
-    console.log(productsList);
+    //Выдается массив с разделителем "," - Исправлено с помощью .join('');
     document.querySelector('.products').innerHTML = productsList;
 };
 
