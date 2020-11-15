@@ -1,20 +1,21 @@
 const products = [
-    {id: 1, title: 'Notebook', price: 2000},
-    {id: 2, title: 'Mouse', price: 20},
-    {id: 3, title: 'Keyboard', price: 200},
-    {id: 4, title: 'Gamepad', price: 50},
+    {id: 1, title: 'Shirt', price: 150},
+    {id: 2, title: 'Socks', price: 50},
+    {id: 3, title: 'Jacket', price: 350},
+    {id: 4, title: 'Shoes', price: 250},
+    {id: 5, title: 'Pants', price: 100},
 ];
 //Функция для формирования верстки каждого товара
-const renderProduct = (title, price) => {
+const renderProduct = (good) => {
     return `<div class="product-item">
-                <h3>${title}</h3>
-                <p>${price}</p>
+                <h3>${good.title}</h3>
+                <p>${good.price} ₽</p>
                 <button class="buy-btn">Купить</button>
             </div>`
 };
 const renderPage = list => {
-    const productsList = list.map(item => renderProduct(item.title, item.price));
-    console.log(productsList);
+    const productsList = list.map(item => renderProduct(item)).join('');
+    //Выдается массив с разделителем "," - Исправлено с помощью .join('');
     document.querySelector('.products').innerHTML = productsList;
 };
 
