@@ -1,6 +1,6 @@
 class Hamburger {
   constructor(stuffing) {
-    this._calc();
+    this.calc();
     this.stuffing = {
       small: {
         price: 50,
