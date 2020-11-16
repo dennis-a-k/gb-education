@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger</title>
+  <style>body{font-family: sans-serif;}</style>
+</head>
+<body>
+  <form action="">
+    <p><b>Размер Гамбургера:</b></p>
+    <p><input name="size" type="radio" value="large" checked> Большой (100 ₽, 40 калорий)</p>
+    <p><input name="size" type="radio" value="small"> Маленький (50 ₽, 20 калорий)</p>
+  </form>
+  <form action="">
+    <p><b>Начинка Гамбургера:</b></p>
+    <p><input name="filling" type="radio" value="cheese" checked> С сыром (+10 ₽, +20 калорий)</p>
+    <p><input name="filling" type="radio" value="salad"> С салатом (+20 ₽, +5 калорий)</p>
+    <p><input name="filling" type="radio" value="potato"> С картофелем (+15 ₽, +10 калорий)</p>
+    <p><b>Дополнительно:</b></p>
+    <p><input type="checkbox" name="topping" value="seasoning"> Приправа (+15 ₽, +0 калорий)</p>
+    <p><input type="checkbox" name="topping" value="sauce"> Майонез (+20 ₽, +5 калорий)</p>
+    <p><button id="button">Выбрать</button>
+    <p class="prise"></p>
+  </form> 
+  <script src="/Hamburger/script.js">
+
+  </script>
+</body>
+</html>
