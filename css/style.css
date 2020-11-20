@@ -29,7 +29,8 @@ header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 65px;
+  padding-right: 15px;
 }
 #total-price {
   padding: 0 15px;
@@ -44,7 +45,7 @@ header {
 .logo span {
   display: block;
   font-family: sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
 }
@@ -72,13 +73,18 @@ header {
 }
 main {
   grid-area: main;
-  padding: 30px 0;
+  padding: 30px 15px;
 }
 .products {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   justify-content: space-between;
   grid-gap: 40px;
+}
+@media (max-width: 767px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
 }
 .product-item {
   background: #fff;
