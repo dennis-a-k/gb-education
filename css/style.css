@@ -50,7 +50,7 @@ header {
   font-weight: 300;
   text-transform: uppercase;
 }
-.btn-cart {
+.btn {
   width: 130px;
   height: 40px;
   border-radius: 50px;
@@ -68,7 +68,7 @@ header {
   border: none;
   transition: all ease-in-out .4s;
 }
-.btn-cart:hover {
+.btn:hover {
   background: #112e41;
 }
 .cart-block{
@@ -118,6 +118,7 @@ header {
   line-height: normal;
   color: #ff7214;
   cursor: pointer;
+  outline: none;
 }
 .invisible{
   display: none;
@@ -164,27 +165,6 @@ main {
   color: #ff7214;
   letter-spacing: 1px;
   margin: 15px 0;
-}
-.buy-btn {
-  width: 130px;
-  height: 40px;
-  border-radius: 50px;
-  background: #ff7214;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 1.5px;
-  line-height: 40px;
-  text-decoration: none;
-  outline: none;
-  cursor: pointer;
-  border: none;
-  transition: all ease-in-out .4s;
-}
-.buy-btn:hover {
-  background: #112e41;
 }
 footer {
   grid-area: footer;
