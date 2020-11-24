@@ -22,10 +22,10 @@ class ProductsList{
     }
 
     render(){
-        const block = document.querySelector(this.container);
+        const BLOCK = document.querySelector(this.container);
         this.goods.forEach(product => {
             const productObject = new this.item(product);
-            block.insertAdjacentHTML('beforeend',productObject.render());
+            BLOCK.insertAdjacentHTML('beforeend',productObject.render());
         });
     }
 }
@@ -149,5 +149,81 @@ class CartItem extends ProductItem{
     }
 }
 
+class ContactForm {
+    constructor(container = '.footer'){
+        this.container = container; 
+        this.userName = [];
+        this.userPhone = [];
+        this.userEmail = [];
+        this.render();
+        this._init();  
+    }
+
+    render(){
+        return new Promise((res, req) => {
+            const container = document.createElement('form');
+            container.classList.add('form-box');
+            container.innerHTML = `
+                        <input class ="userName" type="text" placeholder="Имя/Name">
+                        <input class ="userPhone " type="tel" placeholder="+7(000)000-0000">
+                        <input class ="userEmail " type="email" placeholder="mymail@mail.ru">
+                        <button type="submit" class ="btn submit">Отправить</button>
+                        <p class ="form-text_error"></p>`
+            document.querySelector('.footer').appendChild(container);
+        })
+    }
+
+    validName(value) {
+        let rex = /^[A-Za-zА-Яа-яЁё]+$/;
+        this.userName = value.match(rex);
+        console.log(this.userName);
+    }
+    validPhone(value) {
+        let rex = /^\+\d{1}\(\d{3}\)\d{3}-\d{4}$/;
+        this.userPhone = value.match(rex);
+        console.log(this.userPhone);
+    }
+    validEmail(value) {
+        let rex = /^[a-z0-9]+([.-])?[a-z0-9]+@([a-z0-9]+)\.([a-z]{2,6})$/;
+        this.userEmail = value.match(rex);
+        console.log(this.userEmail);
+    }
+    
+    addError(){
+        let error = 'Поля заполнены некорректно'
+        if(this.userName === null){
+            document.querySelector('.userName').classList.add('form_error');
+            document.querySelector('.form-text_error').textContent = error;
+        }else{
+            document.querySelector('.userName').classList.remove('form_error');
+            document.querySelector('.form-text_error').textContent = null;
+        }
+        if(this.userPhone === null){
+            document.querySelector('.userPhone').classList.add('form_error');
+            document.querySelector('.form-text_error').textContent = error;
+        }else{
+            document.querySelector('.userPhone').classList.remove('form_error');
+            document.querySelector('.form-text_error').textContent = null;
+        }if(this.userEmail === null){
+            document.querySelector('.userEmail').classList.add('form_error');
+            document.querySelector('.form-text_error').textContent = error;
+        }else{
+            document.querySelector('.userEmail').classList.remove('form_error');
+            document.querySelector('.form-text_error').textContent = null;
+        }
+    }
+
+    _init() {
+        document.querySelector('.form-box').addEventListener('submit', event => {
+            event.preventDefault();
+            this.validName(document.querySelector('.userName').value);
+            this.validPhone(document.querySelector('.userPhone').value);
+            this.validEmail(document.querySelector('.userEmail').value);
+            this.addError();
+        });
+    }
+}
+
 let list = new ProductsList();
 let cart = new Cart();
+let contactForm = new ContactForm();
