@@ -55,20 +55,25 @@ class ProductItem{
 class Cart extends ProductsList{
     constructor(container = '.cart-block', url = '/json/getBasket.json', item = CartItem){
         super(container, url, item);
-        this.info = {};
         this.getProducts()
             .then(data => {
-                this.info = {...data};
                 this._init();
                 this.handleData(data.contents);
+                this._costAndCount();
             });
     }
 
-    // _cost(){}
+    _costAndCount(){
+        const SUM = document.querySelector(this.container);
+        let cost = 0;
+        let count = 0;
+        this.goods.forEach(product => cost += (product.price * product.quantity));
+        this.goods.forEach(product => count += product.quantity);
+        SUM.insertAdjacentHTML('afterbegin',`<p>Количество товара: <span id="count">${count} шт.</span></p><hr>`);
+        SUM.insertAdjacentHTML('afterbegin',`<p>Сумма покупок: <span id="cost">${cost} ₽</span></p>`);
+    }
 
     _init(){
-        // document.querySelector('.cart-block').insertAdjacentHTML('beforeend',`<p>Сумма покупок: <span>${this.info.amount} ₽</span></p>`);
-        // document.querySelector('.cart-block').insertAdjacentHTML('beforeend',`<p>Количество товара: <span>${this.info.countGoods} шт.</span></p><hr>`);
         document.querySelector('.btn-cart').addEventListener('click', () => {
             document.querySelector('.cart-block').classList.toggle('invisible');
         });
@@ -85,7 +90,6 @@ class Cart extends ProductsList{
     }
 
     _addProduct(element){
-        console.log(element.dataset)
         let productId = +element.dataset['id'];
         let find = this.goods.find(product => product.id === productId);
         if(find.quantity >= 1){
@@ -98,7 +102,6 @@ class Cart extends ProductsList{
                 title: element.dataset['title'],
                 quantity: 1
             };
-            console.log(product)
             this.goods = [product];
             this.render();
         }
@@ -107,19 +110,25 @@ class Cart extends ProductsList{
     _dellProduct(element){
         let productId = +element.dataset['id'];
         let find = this.goods.find(product => product.id === productId);
-        if(find.quantity > 1){
+        if(find.quantity >= 1){
             find.quantity--;
             this._updateCart(find);
-            console.log(find)
         } else {
             document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
         }
     }
 
     _updateCart(product){
-        let block = document.querySelector(`.cart-item[data-id="${product.id}"]`);
-        block.querySelector('.product-quantity').textContent = `${product.quantity} шт.`;
-        block.querySelector('.product-price').textContent = `${product.quantity*product.price} ₽`;
+        const BLOCK = document.querySelector(`.cart-item[data-id="${product.id}"]`);
+        BLOCK.querySelector('#product-quantity').textContent = `${product.quantity} шт.`;
+        BLOCK.querySelector('#product-price').textContent = `${product.quantity*product.price} ₽`;
+        const SUM = document.querySelector(this.container);
+        let cost = 0;
+        let count = 0;
+        this.goods.forEach(product => cost += (product.price * product.quantity));
+        this.goods.forEach(product => count += product.quantity);
+        SUM.querySelector('#cost').textContent = `${cost} ₽`;
+        SUM.querySelector('#count').textContent = `${count} шт.`;
     }
 }
 
@@ -133,8 +142,8 @@ class CartItem extends ProductItem{
         return `<div class="cart-item" data-id="${this.id}">
                     <button class="minus-plus buy-btn" data-id="${this.id}">&#43;</button>
                     <p>${this.title}</p>
-                    <span class="product-quantity">${this.quantity} шт.</span>
-                    <p class="product-price">${this.quantity * this.price} ₽</p>
+                    <span id="product-quantity">${this.quantity} шт.</span>
+                    <p id="product-price">${this.quantity * this.price} ₽</p>
                     <button class="minus-plus dell-btn" data-id="${this.id}">&#8722;</button>
                 </div>`
     }
