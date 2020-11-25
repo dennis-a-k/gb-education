@@ -1,0 +1,21 @@
+<div id="text"></div>
+<script>
+  let text = 'One: \'Hi Mary.\' Two: \'Oh, hi.\'\n' + '<br>'+
+        'One: \'How are you doing?\'\n' + '<br>'+
+        'Two: \'I\'m doing alright. How about you?\'\n' + '<br>'+
+        '    One: \'Not too bad. The weather is great isn\'t it?\'\n' + '<br>'+
+        '    Two: \'Yes. It\'s absolutely beautiful today.\'\n' + '<br>'+
+        'One: \'I wish it was like this more frequently.\'\n' + '<br>'+
+        'Two: \'Me too.\'\n' + '<br>'+
+        'One: \'So where are you going now?\'\n' + '<br>'+
+        'Two: \'I\'m going to meet a friend of mine at the department store.\'\n' + '<br>'+
+        'One: \'Going to do a little shopping?\'\n' + '<br>'+
+        'Two: \'Yeah, I have to buy some presents for my parents.\'\n' + '<br>'+
+        'One: \'What\'s the occasion?\'\n' + '<br>'+
+        '    Two: \'It\'s their anniversary.\'\n' + '<br>'+
+        'One: \'That\'s great. Well, you better get going. You don\'t want to be late.\'\n' + '<br>'+
+        'Two: \'I\'ll see you next time.\'\n' + '<br>'+
+        'One: \'Sure. Bye.\'';
+  console.log(text.replace(/^'|(\s)'|'(\s)|'$/g, '"'));
+  document.querySelector('#text').innerHTML = text.replace(/^'|(\s)'|'(\s)|'$/g, '"');
+</script>

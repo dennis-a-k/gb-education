@@ -199,3 +199,38 @@ footer {
   color: #112e41;
   padding: 30px 0;
 }
+.footer{
+  padding: 0 15px;
+}
+.form-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 130px;
+  grid-column-gap: 30px;
+  margin-top: 15px;
+}
+.form-box input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: #ff7214;
+}
+.form-text_error {
+  grid-column: 1/4;
+  text-align: center;
+  padding-top: 10px;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: #112e41;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.form_error{
+  background: #fab1a0;
+}
