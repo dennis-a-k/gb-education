@@ -35,7 +35,7 @@ const eShop = new Vue({
         addProductCart(product){
             product.quantity++;
         },
-        filterGoods() {
+        filterGoods(){
             const regexp = new RegExp(this.searchLine, 'i');
             this.filteredGoods = this.products.filter(product => {
                 return regexp.test(product.title);

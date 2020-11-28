@@ -95,6 +95,28 @@ header {
 .btn:hover {
   background: #112e41;
 }
+.btn-no {
+  width: 130px;
+  height: 40px;
+  border: 1px solid #ff7214;
+  border-radius: 50px;
+  background: #fff;
+  color: #ff7214;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1.5px;
+  line-height: 40px;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: all ease-in-out .4s;
+}
+.btn-no:hover {
+  border: 1px solid #112e41;
+  color: #112e41;
+}
 .cart-block{
   box-shadow: 0px 10px 40px 0px rgba(139, 94, 255, 0.1);
   border-radius: 5px;
