@@ -121,7 +121,7 @@ header {
   box-shadow: 0px 10px 40px 0px rgba(139, 94, 255, 0.1);
   border-radius: 5px;
   right: 15px;
-  top: 110%;
+  top: 115%;
   position: absolute;
   background-color: white;
   padding: 20px;
@@ -140,7 +140,7 @@ header {
 }
 .cart-block p {
   color: #112e41;
-  line-height: 1.8;
+  line-height: 3;
   text-align: center;
 }
 .cart-block span {
@@ -151,9 +151,13 @@ header {
 }
 .cart-block div {
   display: grid;
-  grid-template-columns: 20px repeat(3, 1fr) 20px;
+  grid-template-columns: 20px 1fr 30px repeat(2, 1fr) 20px;
   align-items: center;
   text-align: center;
+}
+.cart-item img {
+  width: 100%;
+  justify-self: center;
 }
 .minus-plus {
   width: 20px;

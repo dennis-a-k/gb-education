@@ -8,10 +8,11 @@ Vue.component('cart', {
 Vue.component('cart-item', {
   props: ['cartItem'],
   template: `<div class="cart-item">
-              <button class="minus-plus" @click="$parent.$emit('add-product-cart', cartItem)">&#43;</button>
+              <button class="minus-plus" @click="$parent.$emit('add-product', cartItem)">&#43;</button>
               <p>{{ cartItem.title }}</p>
+              <img :src="cartItem.img" alt="{{ cartItem.title }}">
               <span id="product-quantity">{{ cartItem.quantity }} шт.</span>
               <p id="product-price">{{ cartItem.quantity * cartItem.price }} ₽</p>
-              <button class="minus-plus" @click="$parent.$emit('dell-product', cartItem)">&#8722;</button>
+              <button class="minus-plus" @click="$parent.$emit('del-product', cartItem)">&#8722;</button>
             </div>`
 });
