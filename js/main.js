@@ -6,7 +6,7 @@ const eShop = new Vue({
         filteredGoods: [],
         searchLine: '',
         showCart: false,
-        cart: []
+        cartItems: []
     },
     methods: {
         getProducts(url){
@@ -17,19 +17,19 @@ const eShop = new Vue({
                 })
         },
         addProduct(product){
-            let find = this.cart.find(el => el.id === product.id);
+            let find = this.cartItems.find(el => el.id === product.id);
             if(find){
                 find.quantity++;
             } else {
                 let prod = Object.assign({quantity: 1}, product);
-                this.cart.push(prod)
+                this.cartItems.push(prod)
             }
         },
         dellProduct(product){
             if(product.quantity>1){
                 product.quantity--;
             } else {
-                this.cart.splice(this.cart.indexOf(product), 1)
+                this.cartItems.splice(this.cartItems.indexOf(product), 1)
             }
         },
         addProductCart(product){
@@ -37,9 +37,7 @@ const eShop = new Vue({
         },
         filterGoods(){
             const regexp = new RegExp(this.searchLine, 'i');
-            this.filteredGoods = this.products.filter(product => {
-                return regexp.test(product.title);
-            });
+            this.filteredGoods = this.products.filter(product => regexp.test(product.title));
         }
     },
     mounted(){
@@ -50,13 +48,5 @@ const eShop = new Vue({
                    this.filteredGoods.push(el);
                }
            });
-    },
-    computed: {
-        divClasses() {
-            return {
-                invisible: !this.showCart,
-                '': this.showCart
-            }
-        }
     }
 });

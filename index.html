@@ -17,42 +17,22 @@
             Интернет магазин
           </span>
         </a>
-        <form action="#" class="search-form">
-          <input type="text" class="search-field" v-model="searchLine">
-          <button class="btn-search" type="submit" @click="filterGoods">
-              <img src="/img/search.png" alt="">
-          </button>
-        </form>
-        <button class="btn-cart btn" type="button" @click="showCart = !showCart" v-if="cart.length">
+        <search></search>
+        <button class="btn-cart btn" type="button" @click="showCart = !showCart" v-if="cartItems.length">
           Корзина
         </button>
         <button class="btn-cart btn-no" type="button" @click="showCart = !showCart" v-else>
           Корзина
         </button>
-        <div class="cart-block" :class="divClasses">
-          <p class="products__no" v-if="!cart.length">Корзина пуста</p>
-          <div class="cart-item" v-for="item of cart" :key="item.id">
-            <button class="minus-plus" @click="addProductCart(item)">&#43;</button>
-            <p>{{ item.title }}</p>
-            <span id="product-quantity">{{ item.quantity }} шт.</span>
-            <p id="product-price">{{ item.quantity * item.price }} ₽</p>
-            <button class="minus-plus" @click="dellProduct(item)">&#8722;</button>
-          </div>
-        </div>
+        <cart :cart-items="cartItems"
+              :visibility="showCart"
+              @add-product-cart="addProductCart"
+              @dell-product="dellProduct">
+        </cart>
       </div>
     </header>
     <main class="container">
-      <div class="products">
-        <p class="products__no" v-if="!filteredGoods.length">Нет данных</p>
-        <div class="product-item" v-for="product of filteredGoods" :key="product.id">
-          <a href="#"><img :src="product.img" alt="{{ product.title }}"></a>
-          <a href="#"><h3>{{ product.title }}</h3></a>
-          <p>{{ product.price }} ₽</p>
-          <button class="buy-btn btn" @click="addProduct(product)">
-            Купить
-          </button>
-        </div>
-      </div>
+      <products :products="filteredGoods" @add-product="addProduct"></products>
     </main>
     <footer>
       <div class="container">
@@ -61,6 +41,9 @@
     </footer>
   </div>
   <script src="/js/vue.js"></script>
+  <script src="/js/ProductComponent.js"></script>
+  <script src="/js/CartComponent.js"></script>
+  <script src="/js/SearchComponent.js"></script>
   <script src="/js/main.js"></script>
 </body>
 </html>
