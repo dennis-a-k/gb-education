@@ -18,21 +18,11 @@
           </span>
         </a>
         <search></search>
-        <button class="btn-cart btn" type="button" @click="showCart = !showCart" v-if="cartItems.length">
-          Корзина
-        </button>
-        <button class="btn-cart btn-no" type="button" @click="showCart = !showCart" v-else>
-          Корзина
-        </button>
-        <cart :cart-items="cartItems"
-              :visibility="showCart"
-              @add-product="addProduct"
-              @del-product="delProduct">
-        </cart>
+        <cart ref="cart"></cart>
       </div>
     </header>
     <main class="container">
-      <products :products="filteredGoods" @add-product="addProduct"></products>
+      <products ref="products"></products>
     </main>
     <footer>
       <div class="container">
@@ -41,9 +31,6 @@
     </footer>
   </div>
   <script src="/js/vue.js"></script>
-  <script src="/js/ProductComponent.js"></script>
-  <script src="/js/CartComponent.js"></script>
-  <script src="/js/SearchComponent.js"></script>
-  <script src="/js/main.js"></script>
+  <script src="/js/script.js"></script>
 </body>
 </html>
