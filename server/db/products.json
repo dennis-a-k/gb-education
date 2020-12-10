@@ -1,0 +1,31 @@
+[{
+    "id_product": 1,
+    "product_name": "Shirt",
+    "price": 150,
+    "img": "./img/Shirt.png"
+  },
+  {
+    "id_product": 2,
+    "product_name": "Socks",
+    "price": 50,
+    "img": "./img/Socks.png"
+  },
+  {
+    "id_product": 3,
+    "product_name": "Jacket",
+    "price": 350,
+    "img": "./img/Jacket.png"
+  },
+  {
+    "id_product": 4,
+    "product_name": "Shoes",
+    "price": 250,
+    "img": "./img/Shoes.png"
+  },
+  {
+    "id_product": 5,
+    "product_name": "Pants",
+    "price": 100,
+    "img": "./img/Pants.png"
+  }
+]
