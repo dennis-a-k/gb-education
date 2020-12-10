@@ -1,10 +1,24 @@
-Vue.component('products', {
+const product = {
+    props: ['product', 'img'],
+    template:`<div class="product-item">
+                <a href="#"><img :src="img" :alt="product.product_name"></a>
+                <a href="#"><h3>{{ product.product_name }}</h3></a>
+                <p>{{ product.price }} ₽</p>
+                <button class="buy-btn btn" @click="$root.$refs.cart.addProduct(product)">
+                    Купить
+                </button>
+            </div>`
+};
+const products = {
     data(){
         return {
             catalogUrl: `/catalogData.json`,
             products: [],
             filtered: [],
         }
+    },
+    components: {
+        product
     },
     methods: {
         filter(value){
@@ -31,16 +45,6 @@ Vue.component('products', {
                     >
                 </product>
             </div>` 
-});
+};
 
-Vue.component('product', {
-    props: ['product', 'img'],
-    template:`<div class="product-item">
-                <a href="#"><img :src="img" :alt="product.product_name"></a>
-                <a href="#"><h3>{{ product.product_name }}</h3></a>
-                <p>{{ product.price }} ₽</p>
-                <button class="buy-btn btn" @click="$root.$refs.cart.addProduct(product)">
-                    Купить
-                </button>
-            </div>`
-})
+export default products

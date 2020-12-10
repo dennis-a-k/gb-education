@@ -1,4 +1,4 @@
-Vue.component('search', {
+const search = {
    data() {
       return {
          userSearch: ''
@@ -10,4 +10,5 @@ Vue.component('search', {
                   <img src="/img/search.png" alt="search">
                </button>
             </form>`
-});
+};
+export default search;
