@@ -45,4 +45,6 @@ Route::group([
         ->where('id','[0-9]+');
     Route::get('/create', 'NewsController@create')
         ->name('create');
+    Route::post('/create/submit', 'NewsController@submit')
+        ->name('submit');
 });
