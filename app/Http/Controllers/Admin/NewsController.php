@@ -14,7 +14,7 @@ class NewsController extends Controller
         return view('admin.create');
     }
     public function submit(Request $request){
-        dd($request->all(['title', 'content']));
+        dd($request->all(['title', 'content', 'category']));
     }
     public function update($id){
         return view('admin.update', ['id' => $id]);
