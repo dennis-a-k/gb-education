@@ -7,21 +7,21 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function index(){
-        return view('welcome');
+        return view('index');
     }
     public function about(){
-        return view('about');
+        return view('news.about'); //Папка news -> шаблон about
     }
     public function news(){
-        return view('news');
+        return view('news.news');
     }
     public function newsCart($id){
-        return view('newsCart', ['id' => $id]);
+        return view('news.newsCart', ['id' => $id]);
     }
     public function category($category){
-        return view('category', ['category' => $category]);
+        return view('news.category', ['category' => $category]);
     }
     public function login(){
-        return view('login');
+        return view('news.login');
     }
 }

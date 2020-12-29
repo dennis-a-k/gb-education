@@ -8,15 +8,18 @@ use Illuminate\Http\Request;
 class NewsController extends Controller
 {
     public function index(){
-        return view('newsAdmin');
+        return view('admin.newsAdmin');
     }
     public function create(){
-        return view('create');
+        return view('admin.create');
+    }
+    public function submit(Request $request){
+        dd($request->all(['title', 'content', 'category']));
     }
     public function update($id){
-        return view('update');
+        return view('admin.update', ['id' => $id]);
     }
     public function newsCartAdmin($id){
-        return view('newsCartAdmin', ['id' => $id]);
+        return view('admin.newsCartAdmin', ['id' => $id]);
     }
 }
