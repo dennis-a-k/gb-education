@@ -1,20 +1,12 @@
 @extends('layouts.main')
 
 @section('title')
-  @if($category == 'goodNews')
-    Good News
-  @else
-    Bad News
-  @endif
+  {{ $category->name }}
 @endsection
 
 @section('main')
 <h1>
-  @if($category == 'goodNews')
-    Good News
-  @else
-    Bad News
-  @endif
+  {{ $category->name }}
 </h1>
 <div class="card" style="margin-bottom: 10px">
   <div class="row no-gutters">
