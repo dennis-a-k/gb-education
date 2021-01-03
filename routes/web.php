@@ -43,8 +43,14 @@ Route::group([
     Route::get('/update/{id}', 'NewsController@update')
         ->name('update')
         ->where('id','[0-9]+');
+    Route::post('/update/{id}', 'NewsController@updateSubmit')
+        ->name('update-submit')
+        ->where('id','[0-9]+');
     Route::get('/create', 'NewsController@create')
         ->name('create');
     Route::post('/create/submit', 'NewsController@submit')
         ->name('submit');
+    Route::get('/delete/{id}', 'NewsController@newsDelete')
+        ->name('news::delete')
+        ->where('id','[0-9]+');
 });
