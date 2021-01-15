@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-  Создать Новость
+  {{ __('lang.create') }} {{ __('lang.news') }}
 @endsection
 
 @section('main')
@@ -20,39 +20,39 @@
             <input type="file" class="custom-file-input" id="customFile">
             <label class="custom-file-label" for="customFile">Choose Image</label>
         </div> -->
-        <input class="form-control" type="text" placeholder="Заголовок" name="title">
+        <input class="form-control" type="text" placeholder="{{ __('lang.title') }}" name="title">
         <div class="border rounded p-2 mb-2">
-          <h6>Категория Новости<h6>
+          <h6>{{ __('lang.category') }}<h6>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline1" name="category" class="custom-control-input" value="1" checked>
-                <label class="custom-control-label" for="customRadioInline1">Good News</label>
+                <input type="radio" id="customRadioInline1" name="category_id" class="custom-control-input" value="1" checked>
+                <label class="custom-control-label" for="customRadioInline1">{{ __('lang.good-news') }}</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline2" name="category" class="custom-control-input" value="2">
-                <label class="custom-control-label" for="customRadioInline2">Bed News</label>
+                <input type="radio" id="customRadioInline2" name="category_id" class="custom-control-input" value="2">
+                <label class="custom-control-label" for="customRadioInline2">{{ __('lang.bad-news') }}</label>
             </div>
         </div>
         <div class="border rounded p-2">
-          <h6>Источник<h6>
+          <h6>{{ __('lang.source') }}<h6>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline3" name="source" class="custom-control-input" value="1" checked>
-                <label class="custom-control-label" for="customRadioInline3">Интернет</label>
+                <input type="radio" id="customRadioInline3" name="source_id" class="custom-control-input" value="1" checked>
+                <label class="custom-control-label" for="customRadioInline3">{{ __('lang.internet') }}</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline4" name="source" class="custom-control-input" value="2">
-                <label class="custom-control-label" for="customRadioInline4">Телевидение</label>
+                <input type="radio" id="customRadioInline4" name="source_id" class="custom-control-input" value="2">
+                <label class="custom-control-label" for="customRadioInline4">{{ __('lang.tv') }}</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline5" name="source" class="custom-control-input" value="3">
-                <label class="custom-control-label" for="customRadioInline5">Газеты</label>
+                <input type="radio" id="customRadioInline5" name="source_id" class="custom-control-input" value="3">
+                <label class="custom-control-label" for="customRadioInline5">{{ __('lang.newspaper') }}</label>
             </div>
             <div class="custom-control custom-radio custom-control-inline">
-                <input type="radio" id="customRadioInline6" name="source" class="custom-control-input" value="4">
-                <label class="custom-control-label" for="customRadioInline6">Сарафан</label>
+                <input type="radio" id="customRadioInline6" name="source_id" class="custom-control-input" value="4">
+                <label class="custom-control-label" for="customRadioInline6">{{ __('lang.other-news') }}</label>
             </div>
         </div>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" placeholder="Текст" name="content"></textarea>
-        <a href="{{ route('admin::news') }}" class="btn btn-outline-dark" style="width: 200px">Отмена</a>
-        <button type="submit" class="btn btn-danger" style="width: 200px">Создать</button>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" placeholder="{{ __('lang.text') }}" name="content"></textarea>
+        <a href="{{ route('admin::news') }}" class="btn btn-outline-dark" style="width: 200px">{{ __('lang.cancel') }}</a>
+        <button type="submit" class="btn btn-danger" style="width: 200px">{{ __('lang.create') }}</button>
     </form>
 @endsection
