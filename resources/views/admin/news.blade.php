@@ -5,6 +5,11 @@
 @endsection
 
 @section('main')
+  @if(session('success'))
+    <div class="alert alert-success">
+      {{ session('success') }}
+    </div>
+  @endif
   <a href="{{ route('create') }}" class="btn btn-danger" style="margin-bottom: 10px; display: block">+ {{ __('lang.add-news') }}</a>
   @foreach($news as $item)
   <div class="card" style="margin-bottom: 10px">
@@ -22,4 +27,8 @@
     </div>
   </div>
   @endforeach
+  <hr>
+  <div class="row justify-content-center">
+    {{ $news->onEachSide(5)->links('vendor.pagination.bootstrap-4') }}
+  </div>
 @endsection

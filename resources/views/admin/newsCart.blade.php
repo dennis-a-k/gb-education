@@ -5,6 +5,11 @@
 @endsection
 
 @section('main')
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
     <h1>{{ $news->title }}</h1>
     <h4>{{ $news->category->description }}</h4>
     <p class="source">{{ __('lang.source') }}: {{ $news->source->name }}</p>
