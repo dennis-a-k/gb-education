@@ -2,6 +2,11 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div style="display: flex;justify-content: flex-end;">
+    <a href="{{ route('locale',['lang' => 'ru']) }}" style="margin: 0; color: darkgrey;">RU</a>
+    <span>&nbsp;/&nbsp;</span>
+    <a href="{{ route('locale', ['lang' => 'en'])}}" style="margin: 0; color: darkgrey;">EN</a>
+  </div>
   <a href="{{ route('news') }}">{{ __('lang.news') }}</a>
   <a href="{{ route('about') }}">{{ __('lang.about-us') }}</a>
   @guest

@@ -62,6 +62,10 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class,'showLogin
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])
     ->name('logout');
+
+Route::get('/locale/{lang}', [App\Http\Controllers\LocaleController::class, 'index'])
+    ->name('locale');
+    
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('home');
 

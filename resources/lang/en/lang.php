@@ -2,6 +2,7 @@
 
 return [
   'welcome' => 'Welcome',
+  'lang' => 'Lang',
   'news' => 'News',
   'the-news' => 'The News',
   'about-us' => 'About Us',

@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class Locale
 {
-    const DEFAULT_LOCALE = 'ru';
-
-    /**
+     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -18,7 +16,9 @@ class Locale
      */
     public function handle(Request $request, Closure $next)
     {
-        \App::setLocale($request->get('lang') ?? static::DEFAULT_LOCALE);
+        if($request->session()->exists('locale')){
+            \App::setLocale($request->session()->get('locale'));
+        }
         return $next($request);
     }
 }
