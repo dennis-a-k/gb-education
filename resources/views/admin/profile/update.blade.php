@@ -1,13 +1,13 @@
 @extends('layouts.main')
 
 @section('title')
-  {{ __('lang.user') }}
+  {{ __('lang.profile') }}
 @endsection
 
 @section('main')
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <h1>{{ __('lang.user') }}</h1>
+      <h1>{{ __('lang.profile') }}</h1>
       @if ($errors->any())
         <div class="alert alert-danger">
           <ul>

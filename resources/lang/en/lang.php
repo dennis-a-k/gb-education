@@ -16,7 +16,7 @@ return [
   'you-are-logged-in!' => 'You are logged in!',
   'name' => 'Name',
   'users' => 'Users',
-  'user' => 'User',
+  'profile' => 'Profile',
   'good-news' => 'Good News',
   'bad-news' => 'Bad News',
   'choice' => 'Your Choice',

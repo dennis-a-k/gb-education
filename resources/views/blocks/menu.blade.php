@@ -19,6 +19,9 @@
     <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="navbarDropdown">
     <ul class="list-unstyled m-0">
       <li class="p-2">
+        <a href="{{ route('profile::update') }}" class="m-0">{{ __('lang.profile') }}</a>
+      </li>
+      <li class="p-2">
         <a href="{{ route('admin::news') }}" class="m-0">{{ __('lang.edit-news') }}</a>
       </li>
       <li class="p-2">
