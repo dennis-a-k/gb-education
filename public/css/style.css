@@ -22,6 +22,7 @@ hr {
   color: #dc3545;
   display: block;
   border: 3px solid #dc3545;
+  text-transform: uppercase;
 }
 .logo:hover {
   color: #dc3545;

@@ -23,17 +23,14 @@ Route::get('/news', [NewsController::class, 'news'])
 Route::get('/news/{id}', [NewsController::class, 'newsCart'])
     ->name('news-cart')
     ->where('id','[0-9]+');
-Route::get('/login', [NewsController::class, 'login'])
-    ->name('login');
-Route::get('/{category}', [NewsController::class, 'category'])
-    ->name('category');
 
 /**
  * Админка новостей
  */
 Route::group([
     'prefix' => '/admin',
-    'namespace' => '\App\Http\Controllers\Admin'
+    'namespace' => '\App\Http\Controllers\Admin',
+    'middleware' => ['auth']
 ], function(){
     Route::get('/news', 'NewsController@index')
         ->name('admin::news');
@@ -53,4 +50,20 @@ Route::group([
     Route::get('/delete/{id}', 'NewsController@newsDelete')
         ->name('news::delete')
         ->where('id','[0-9]+');
+    Route::match(['get', 'post'], '/profile/update', 'ProfileController@update')
+        ->name('profile::update');
 });
+
+/**
+ * Авторизация
+ */
+Route::get('login', [App\Http\Controllers\Auth\LoginController::class,'showLoginForm'])
+    ->name('login');
+Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])
+    ->name('logout');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+    ->name('home');
+
+Route::get('/{category}', [NewsController::class, 'category'])
+    ->name('category');

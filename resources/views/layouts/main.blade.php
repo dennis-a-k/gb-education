@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+  <!-- CSRF Token -->
+  <meta name="csrf-token" content="{{ csrf_token() }}"> 
 </head>
 <body class="antialiased container">
   <header>
@@ -22,5 +24,6 @@
      <hr>
     &copy; NEWS
   </footer>
+  <script src="{{ asset('/js/app.js') }}" defer></script>
 </body>
 </html>
