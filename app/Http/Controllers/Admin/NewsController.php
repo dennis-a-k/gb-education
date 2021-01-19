@@ -10,7 +10,9 @@ use App\Http\Requests\NewsRequest;
 class NewsController extends Controller
 {
     public function index(){
-        $news = News::get();
+        $news = News::query()
+            ->latest()
+            ->paginate(4);
         return view('admin.news', ['news' => $news]);
     }
     public function newsCartAdmin($id){
@@ -24,7 +26,7 @@ class NewsController extends Controller
         $news = new News();
         $news->fill($request->all());
         $news->save();
-        return redirect()->route('admin::news');
+        return redirect()->route('admin::news')->with('success', 'Новость добавлена');
     }
     public function update($id){
         $news = News::find($id);
@@ -34,7 +36,7 @@ class NewsController extends Controller
         $news = News::find($id);
         $news->fill($request->all());
         $news->save();
-        return redirect()->route('admim::news-cart', ['id' => $id]);
+        return redirect()->route('admim::news-cart', ['id' => $id])->with('success', 'Данные сохранены');
     }
     public function newsDelete($id){
         News::find($id)->delete();

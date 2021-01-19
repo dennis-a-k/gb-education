@@ -16,7 +16,9 @@ class NewsController extends Controller
     }
     public function news(){
         $categories = Category::get();
-        $news = News::get();
+        $news = News::query()
+            ->latest() // отображение новостей в обратном порядке
+            ->paginate(8);
         return view('news.news', ['categories' => $categories, 'news' => $news]);
     }
     public function newsCart($id){
