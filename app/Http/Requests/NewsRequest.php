@@ -24,15 +24,23 @@ class NewsRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3',
+            'title' => 'required|unique:news|min:3|max:255',
             'content' => 'required|min:5'
         ];
     }
 
     public function messages(){
         return [
-            'title.required' => 'Укажите заголовок Новости',
-            'content.required' => 'Напишите текст Новости'
+            'title.required' => 'Укажите :attribute Новости',
+            'content.required' => 'Напишите :attribute Новости'
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'Заголовок',
+            'content' => 'Текст'
         ];
     }
 }

@@ -1,14 +1,14 @@
 @extends('layouts.main')
 
 @section('title')
-    Список новостей
+{{ __('lang.list-news') }}
 @endsection
 
 @section('main')
-<h1>Твой выбор</h1>
+<h1>{{ __('lang.choice') }}</h1>
 <div class="category-news">
-    <a href="{{ route('category', $categories[0]->url) }}" class="good-news">{{ $categories[0]->name }}</a>
-    <a href="{{ route('category', $categories[1]->url) }}" class="bad-news">{{ $categories[1]->name }}</a>
+    <a href="{{ route('category', $categories[0]->url) }}" class="good-news">{{ __('lang.good-news') }}</a>
+    <a href="{{ route('category', $categories[1]->url) }}" class="bad-news">{{ __('lang.bad-news') }}</a>
 </div>
 <div class="news-items">
     @foreach($news as $item)
@@ -19,7 +19,7 @@
             <p class="card-text text-hidden">{{ $item->content }}</p>
         </div>
         <div class="card-body">
-            <a href="{{ route('news-cart', $item->id) }}" class="card-link">Далее...</a>
+            <a href="{{ route('news-cart', $item->id) }}" class="card-link">{{ __('lang.next') }}...</a>
         </div>
     </div>
     @endforeach

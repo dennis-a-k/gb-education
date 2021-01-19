@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('title')
-    Welcome
+{{ __('lang.welcome') }}
 @endsection
 
 @section('main')

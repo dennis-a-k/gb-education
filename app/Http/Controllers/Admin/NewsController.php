@@ -11,21 +11,18 @@ class NewsController extends Controller
 {
     public function index(){
         $news = News::get();
-        return view('admin.newsAdmin', ['news' => $news]);
+        return view('admin.news', ['news' => $news]);
     }
     public function newsCartAdmin($id){
         $news = News::find($id);
-        return view('admin.newsCartAdmin', ['id' => $id, 'news' => $news]);
+        return view('admin.newsCart', ['id' => $id, 'news' => $news]);
     }
     public function create(){
         return view('admin.create');
     }
     public function submit(NewsRequest $request){
         $news = new News();
-        $news->title = $request->input('title');
-        $news->category_id = $request->input('category');
-        $news->source_id = $request->input('source');
-        $news->content = $request->input('content');
+        $news->fill($request->all());
         $news->save();
         return redirect()->route('admin::news');
     }
@@ -35,10 +32,7 @@ class NewsController extends Controller
     }
     public function updateSubmit($id, NewsRequest $request){
         $news = News::find($id);
-        $news->title = $request->input('title');
-        $news->category_id = $request->input('category');
-        $news->source_id = $request->input('source');
-        $news->content = $request->input('content');
+        $news->fill($request->all());
         $news->save();
         return redirect()->route('admim::news-cart', ['id' => $id]);
     }

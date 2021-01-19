@@ -1,11 +1,11 @@
 @extends('layouts.main')
 
 @section('title')
-  Список новостей
+  {{ __('lang.list-news') }}
 @endsection
 
 @section('main')
-  <a href="{{ route('create') }}" class="btn btn-danger" style="margin-bottom: 10px; display: block">+ Добавить Новость</a>
+  <a href="{{ route('create') }}" class="btn btn-danger" style="margin-bottom: 10px; display: block">+ {{ __('lang.add-news') }}</a>
   @foreach($news as $item)
   <div class="card" style="margin-bottom: 10px">
     <div class="row no-gutters">
@@ -15,8 +15,8 @@
       <div class="col-md-10">
         <div class="card-body">
           <h5 class="card-title">{{ $item->title }}</h5>
-          <a href="{{ route('admim::news-cart', $item->id) }}" class="card-link">Далее...</a>
-          <a href="{{ route('update', $item->id) }}" class="btn btn-danger">Редактировать</a>
+          <a href="{{ route('admim::news-cart', $item->id) }}" class="card-link">{{ __('lang.next') }}...</a>
+          <a href="{{ route('update', $item->id) }}" class="btn btn-danger">{{ __('lang.update') }}</a>
         </div>
       </div>
     </div>
