@@ -24,4 +24,8 @@
     </div>
     @endforeach
 </div>
+<hr>
+<div class="row justify-content-center">
+    {{ $news->onEachSide(5)->links('vendor.pagination.bootstrap-4') }}
+</div>
 @endsection
