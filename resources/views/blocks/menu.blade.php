@@ -31,7 +31,7 @@
         <a href="{{ route('admin::news') }}" class="m-0">{{ __('lang.edit-news') }}</a>
       </li>
       <li class="p-2">
-        <a href="{{ route('profile::update') }}" class="m-0">{{ __('lang.users') }}</a>
+        <a href="{{ route('admin::users') }}" class="m-0">{{ __('lang.users') }}</a>
       </li>
       @endif
       <li class="p-2">

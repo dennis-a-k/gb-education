@@ -52,7 +52,7 @@
                 <label class="custom-control-label" for="customRadioInline6">{{ __('lang.other-news') }}</label>
             </div>
         </div>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" placeholder="Текст" name="content">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" placeholder="{{ __('lang.text') }}" name="content">
             {{ $news->content }}
         </textarea>
         <a href="{{ route('admin::news') }}" class="btn btn-outline-dark" style="width: 200px">{{ __('lang.cancel') }}</a>

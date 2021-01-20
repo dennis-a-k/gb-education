@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\NewsController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,31 @@ Route::group([
 });
 
 /**
+ * Админка пользователей
+ */
+Route::group([
+    'prefix' => '/admin/users',
+    'namespace' => '\App\Http\Controllers\Admin',
+    'middleware' => ['auth', 'check_admin']
+], function(){
+    Route::get('/users', 'UsersController@index')
+        ->name('admin::users');
+    Route::get('/edit/{id}', 'UsersController@edit')
+        ->name('users::edit')
+        ->where('id','[0-9]+');
+    Route::post('/update/{id}', 'UsersController@update')
+        ->name('user::update')
+        ->where('id','[0-9]+');
+    Route::get('/create', 'UsersController@create')
+        ->name('user::create');
+    Route::post('/create/store', 'UsersController@store')
+        ->name('store');
+    Route::get('/destroy/{id}', 'UsersController@destroy')
+        ->name('user::delete')
+        ->where('id','[0-9]+');
+});
+
+/**
  * Профиль
  */
 Route::post('/admin/profile/update', [\App\Http\Controllers\Admin\ProfileController::class, 'update'])
@@ -68,7 +94,7 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class,'showLogin
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])
     ->name('logout');
-    
+
 /**
  * Локализация
  */
