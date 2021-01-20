@@ -24,14 +24,16 @@
     <div class="dropdown-menu dropdown-menu-right p-0" aria-labelledby="navbarDropdown">
     <ul class="list-unstyled m-0">
       <li class="p-2">
-        <a href="{{ route('profile::update') }}" class="m-0">{{ __('lang.profile') }}</a>
+        <a href="{{ route('profile::profile') }}" class="m-0">{{ __('lang.profile') }}</a>
       </li>
+      @if(Auth::user()->is_admin)
       <li class="p-2">
         <a href="{{ route('admin::news') }}" class="m-0">{{ __('lang.edit-news') }}</a>
       </li>
       <li class="p-2">
         <a href="{{ route('profile::update') }}" class="m-0">{{ __('lang.users') }}</a>
       </li>
+      @endif
       <li class="p-2">
         <a href="{{ route('logout') }}" class="m-0" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
           {{ __('lang.logout') }}

@@ -30,7 +30,7 @@ Route::get('/news/{id}', [NewsController::class, 'newsCart'])
 Route::group([
     'prefix' => '/admin',
     'namespace' => '\App\Http\Controllers\Admin',
-    'middleware' => ['auth']
+    'middleware' => ['auth', 'check_admin']
 ], function(){
     Route::get('/news', 'NewsController@index')
         ->name('admin::news');
@@ -50,9 +50,15 @@ Route::group([
     Route::get('/delete/{id}', 'NewsController@newsDelete')
         ->name('news::delete')
         ->where('id','[0-9]+');
-    Route::match(['get', 'post'], '/profile/update', 'ProfileController@update')
-        ->name('profile::update');
 });
+
+/**
+ * Профиль
+ */
+Route::post('/admin/profile/update', [\App\Http\Controllers\Admin\ProfileController::class, 'update'])
+        ->name('profile::update');
+Route::get('/admin/profile', [\App\Http\Controllers\Admin\ProfileController::class, 'profile'])
+        ->name('profile::profile');
 
 /**
  * Авторизация
@@ -62,7 +68,10 @@ Route::get('login', [App\Http\Controllers\Auth\LoginController::class,'showLogin
 Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])
     ->name('logout');
-
+    
+/**
+ * Локализация
+ */
 Route::get('/locale/{lang}', [App\Http\Controllers\LocaleController::class, 'index'])
     ->name('locale');
     

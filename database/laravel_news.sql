@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:8889
--- Время создания: Янв 03 2021 г., 12:59
+-- Время создания: Янв 20 2021 г., 11:01
 -- Версия сервера: 5.7.32
 -- Версия PHP: 7.4.12
 
@@ -81,7 +81,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2019_08_19_000000_create_failed_jobs_table', 1),
 (9, '2020_12_26_160830_create_news_table', 1),
 (10, '2020_12_26_161447_create_categories_table', 1),
-(16, '2020_12_30_184249_create_sources_table', 2);
+(16, '2020_12_30_184249_create_sources_table', 2),
+(17, '2020_12_30_181512_update_news_table', 3),
+(18, '2021_01_20_091406_alter_table_users_add_is_admin', 3);
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,19 @@ INSERT INTO `news` (`id`, `title`, `content`, `source_id`, `publish_date`, `crea
 (5, 'Новость - Пятая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 2, '2020-12-30 00:00:00', NULL, NULL, 1, 'news.png'),
 (6, 'Новость - Шестая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 3, '2020-12-30 00:00:00', NULL, NULL, 2, 'news.png'),
 (7, 'Новость - Седьмая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 2, '2020-12-30 00:00:00', NULL, NULL, 2, 'news.png'),
-(8, 'Новость - Восьмая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 4, '2021-01-02 23:40:44', NULL, '2021-01-02 17:43:16', 2, 'news.png');
+(8, 'Новость - Восьмая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 4, '2021-01-02 23:40:44', NULL, '2021-01-02 17:43:16', 2, 'news.png'),
+(9, 'Новость - Девятая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 1, '2021-01-15 16:20:32', '2021-01-15 10:20:32', '2021-01-15 11:13:24', 1, 'news.png'),
+(10, 'Новость - Десятая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 2, '2021-01-15 17:13:46', '2021-01-15 11:13:46', '2021-01-15 11:13:46', 1, 'news.png'),
+(11, 'Новость - Одинадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 4, '2021-01-15 17:14:03', '2021-01-15 11:14:03', '2021-01-15 11:14:03', 2, 'news.png'),
+(12, 'Новость - Двенадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 3, '2021-01-15 17:14:27', '2021-01-15 11:14:27', '2021-01-15 11:14:27', 2, 'news.png'),
+(13, 'Новость - Тринадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 1, '2021-01-15 17:14:59', '2021-01-15 11:14:59', '2021-01-15 11:14:59', 2, 'news.png'),
+(14, 'Новость - Четырнадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 4, '2021-01-15 17:15:20', '2021-01-15 11:15:20', '2021-01-15 11:15:20', 1, 'news.png'),
+(15, 'Новость - Пятнадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 2, '2021-01-15 17:15:42', '2021-01-15 11:15:42', '2021-01-15 11:15:42', 2, 'news.png'),
+(16, 'Новость - Шестнадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 2, '2021-01-15 17:16:17', '2021-01-15 11:16:17', '2021-01-15 11:16:17', 1, 'news.png'),
+(17, 'Новость - Семнадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 3, '2021-01-15 17:17:18', '2021-01-15 11:17:18', '2021-01-15 11:17:18', 1, 'news.png'),
+(18, 'Новость - Восемнадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 1, '2021-01-15 17:17:32', '2021-01-15 11:17:32', '2021-01-15 11:17:32', 2, 'news.png'),
+(19, 'Новость - Девятнадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 1, '2021-01-15 17:17:55', '2021-01-15 11:17:55', '2021-01-15 11:17:55', 2, 'news.png'),
+(20, 'Новость - Двадцатая', 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi repudiandae beatae ut nulla labore sed maiores, voluptates veniam eum aliquid? Reprehenderit adipisci sequi asperiores perspiciatis ratione eius vitae aliquam ipsam excepturi deserunt inventore nam exercitationem accusantium maiores aperiam vero consectetur totam libero, odit ducimus placeat sapiente possimus. Repudiandae, earum pariatur. Nesciunt voluptatibus ullam tempora. Nam earum tempore quis rem commodi!', 1, '2021-01-15 17:18:15', '2021-01-15 11:18:15', '2021-01-15 11:37:01', 2, 'news.png');
 
 -- --------------------------------------------------------
 
@@ -164,8 +178,17 @@ CREATE TABLE `users` (
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `is_admin`) VALUES
+(1, 'admin', 'admin@news.com', NULL, '$2y$10$ArzA/jKie.5JuR6KH2EWve7TainiC09AfA1lcViVrTgWiYGfKwlva', 'Aaz3AcjkKleemDTiJro22yQdWdDxi1ngdCahh5FsCdXjWOKbGq6TnufmlwcM', '2021-01-19 12:25:13', '2021-01-20 07:14:39', 1),
+(2, 'user', 'user@news.com', NULL, '$2y$10$nRFCkKiLAfv5fkv8UujDmOyPYF2tK5ww1GzW3mJk0zqQJeF3WiMyi', NULL, '2021-01-19 16:22:09', '2021-01-19 16:22:09', 0);
 
 --
 -- Индексы сохранённых таблиц
@@ -239,13 +262,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT для таблицы `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT для таблицы `news`
 --
 ALTER TABLE `news`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT для таблицы `sources`
@@ -257,7 +280,7 @@ ALTER TABLE `sources`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
