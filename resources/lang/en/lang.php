@@ -3,6 +3,7 @@
 return [
   'add-user' => 'Add User',
   'admin' => 'Admin',
+  'author' => 'Author',
   'welcome' => 'Welcome',
   'lang' => 'Lang',
   'news' => 'News',
@@ -47,4 +48,5 @@ return [
   'tv' => 'TV',
   'newspaper' => 'Newspaper',
   'other-news' => 'Word of mouth',
+  'rambler' => 'Add news Rambler RSS'
 ];

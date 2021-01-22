@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class NewsSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class NewsSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('news')
+        DB::table('news')
             ->insert($this->generateData());
     }
 
