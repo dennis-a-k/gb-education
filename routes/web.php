@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ParserController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Auth;
@@ -106,3 +107,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 
 Route::get('/{category}', [NewsController::class, 'category'])
     ->name('category');
+    
+/**
+ * Парсер новостей
+ */
+Route::get('/admin/parser', [ParserController::class, 'index'])
+    ->name('parser');
