@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ParserController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\NewsController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -113,3 +114,16 @@ Route::get('/{category}', [NewsController::class, 'category'])
  */
 Route::get('/admin/parser', [ParserController::class, 'index'])
     ->name('parser');
+
+/**
+ * Провайдер FB
+ */
+Route::group([
+    'prefix' => 'social',
+    'as' => 'social::',
+], function () {
+    Route::get('/login', [SocialController::class, 'loginFb'])
+        ->name('login-fb');
+    Route::get('/response', [SocialController::class, 'responseFb'])
+        ->name('response-fb');
+});
