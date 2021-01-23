@@ -22,4 +22,18 @@ class SocialController extends Controller
         Auth::login($ownUser);
         return redirect()->route('home');
     }
+
+    public function loginVk(){
+        if(Auth::id()){
+            return redirect()->back();
+        }
+        return Socialite::with('vkontakte')->redirect();
+    }
+
+    public function responseVk(UserRepository $repository){
+        $ownUser = $repository->getBySocialId(Socialite::driver('vkontakte')->user(), 'vk');
+
+        Auth::login($ownUser);
+        return redirect()->route('home');
+    }
 }

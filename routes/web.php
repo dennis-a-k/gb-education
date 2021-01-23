@@ -126,4 +126,8 @@ Route::group([
         ->name('login-fb');
     Route::get('/response', [SocialController::class, 'responseFb'])
         ->name('response-fb');
+    Route::get('/loginVk', [SocialController::class, 'loginVk'])
+        ->name('login-vk');
+    Route::get('/responseVk', [SocialController::class, 'responseVk'])
+        ->name('response-vk');
 });

@@ -17,7 +17,8 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "orchestra/parser": "^6.0",
-        "socialiteproviders/facebook": "^4.1"
+        "socialiteproviders/facebook": "^4.1",
+        "socialiteproviders/vkontakte": "^4.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
