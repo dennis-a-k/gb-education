@@ -16,15 +16,19 @@ class NewsController extends Controller
     }
     public function news(){
         $categories = Category::get();
-        $news = News::get();
+        $news = News::query()
+            ->latest() // отображение новостей в обратном порядке
+            ->paginate(8);
         return view('news.news', ['categories' => $categories, 'news' => $news]);
     }
     public function newsCart($id){
-        $news = News::where('id', $id)->first();
+        $news = News::find($id);
         return view('news.newsCart', ['news' => $news]);
     }
     public function category($url){
-        $category = Category::where('url', $url)->first();
+        $category = Category::query()
+            ->where('url', $url)
+            ->first();
         return view('news.category', ['category' => $category]);
     }
     public function login(){

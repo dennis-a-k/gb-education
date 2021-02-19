@@ -51,6 +51,14 @@ h1{
   text-align: right;
   margin-bottom: 30px;
 }
+h4{
+  text-align: right;
+  color: #dc3545;
+}
+.source{
+  text-align: right;
+  margin-bottom: 30px;
+}
 .category-news{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -79,6 +87,11 @@ h1{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+}
+.text-hidden{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .form{
   display: grid;
