@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\NewsParsinJob;
 use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,28 +15,16 @@ class ParserController extends Controller
     
     public function index()
     {
-        $xml = XmlParser::load('https://news.rambler.ru/rss/world/');
-        $data = $xml->parse([
-            'items' => ['uses' => 'channel.item[guid,title,description,link,author]'],
-        ]);
+        $sources = [
+            'https://news.rambler.ru/rss/world/',
+            'https://news.rambler.ru/rss/tech/',
+            'https://news.rambler.ru/rss/politics/',
+            'https://news.rambler.ru/rss/community/',
+            'https://news.rambler.ru/rss/Moscow/'
+        ];
         
-        foreach($data['items'] as $key => $value){
-            $news = News::where('id', '=', $value['guid'])->first();
-            if(!$news){
-                $insert[] = [
-                    'id' => $value['guid'],
-                    'title' => $value['title'],
-                    'content' => $value['description'],
-                    'link' => $value['link'],
-                    'author' => $value['author']
-                ];
-            }
+        foreach($sources as $source){
+            NewsParsinJob::dispatch($source);
         }
-
-        if(!empty($insert)){ 
-            DB::table('news')->insert($insert);
-        }
-
-        return redirect()->route('admin::news');
     }
 }

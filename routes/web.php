@@ -33,7 +33,7 @@ Route::get('/news/{id}', [NewsController::class, 'newsCart'])
 Route::group([
     'prefix' => '/admin',
     'namespace' => '\App\Http\Controllers\Admin',
-    'middleware' => ['auth', 'check_admin']
+    'middleware' => ['auth', 'check_admin'] //позволяет редактировать пользователей и Админу и Модератору
 ], function(){
     Route::get('/news', 'NewsController@index')
         ->name('admin::news');
@@ -61,7 +61,7 @@ Route::group([
 Route::group([
     'prefix' => '/admin/users',
     'namespace' => '\App\Http\Controllers\Admin',
-    'middleware' => ['auth', 'check_admin']
+    'middleware' => 'role:admin' //позволяет редактировать пользователей лишь Админу
 ], function(){
     Route::get('/users', 'UsersController@index')
         ->name('admin::users');
