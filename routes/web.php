@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\ParserController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\NewsController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,7 +33,7 @@ Route::get('/news/{id}', [NewsController::class, 'newsCart'])
 Route::group([
     'prefix' => '/admin',
     'namespace' => '\App\Http\Controllers\Admin',
-    'middleware' => ['auth', 'check_admin']
+    'middleware' => ['auth', 'check_admin'] //позволяет редактировать пользователей и Админу и Модератору
 ], function(){
     Route::get('/news', 'NewsController@index')
         ->name('admin::news');
@@ -59,7 +61,7 @@ Route::group([
 Route::group([
     'prefix' => '/admin/users',
     'namespace' => '\App\Http\Controllers\Admin',
-    'middleware' => ['auth', 'check_admin']
+    'middleware' => 'role:admin' //позволяет редактировать пользователей лишь Админу
 ], function(){
     Route::get('/users', 'UsersController@index')
         ->name('admin::users');
@@ -106,3 +108,26 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 
 Route::get('/{category}', [NewsController::class, 'category'])
     ->name('category');
+    
+/**
+ * Парсер новостей
+ */
+Route::get('/admin/parser', [ParserController::class, 'index'])
+    ->name('parser');
+
+/**
+ * Провайдер FB
+ */
+Route::group([
+    'prefix' => 'social',
+    'as' => 'social::',
+], function () {
+    Route::get('/login', [SocialController::class, 'loginFb'])
+        ->name('login-fb');
+    Route::get('/response', [SocialController::class, 'responseFb'])
+        ->name('response-fb');
+    Route::get('/loginVk', [SocialController::class, 'loginVk'])
+        ->name('login-vk');
+    Route::get('/responseVk', [SocialController::class, 'responseVk'])
+        ->name('response-vk');
+});

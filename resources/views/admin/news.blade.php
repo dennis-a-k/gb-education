@@ -11,6 +11,7 @@
     </div>
   @endif
   <a href="{{ route('create') }}" class="btn btn-danger" style="margin-bottom: 10px; display: block">+ {{ __('lang.add-news') }}</a>
+  <a href="{{ route('parser') }}" class="btn btn-outline-danger" style="margin-bottom: 10px; display: block">+ {{ __('lang.rambler') }}</a>
   @foreach($news as $item)
   <div class="card" style="margin-bottom: 10px">
     <div class="row no-gutters">
